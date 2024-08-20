@@ -34,3 +34,11 @@
 #dashboardhead {
   margin-left: 2rem;
 }
+.herosection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 95%;
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
