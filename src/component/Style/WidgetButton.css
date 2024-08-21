@@ -10,7 +10,7 @@
   align-items: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  height: 2.5rem;
+  height: 2.2rem;
 }
 
 .add-widget-button:hover {

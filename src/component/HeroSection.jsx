@@ -4,7 +4,7 @@ import WidgetButton from "./WidgetButton";
 export default function HeroSection() {
   return (
     <div className="herosection">
-      <h2>CNAPP Dashboard</h2>
+      <h1>CNAPP Dashboard</h1>
       <WidgetButton />
     </div>
   );

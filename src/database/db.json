@@ -1,0 +1,60 @@
+{
+  "widgets": [
+    {
+      "id": "1",
+      "category": "CSPM",
+      "name": "Cloud Accounts",
+      "description": "Manage your cloud accounts",
+      "selected": false
+    },
+    {
+      "id": "2",
+      "category": "CSPM",
+      "name": "Cloud Account Risk Assessment",
+      "description": "Assess risks for cloud accounts",
+      "selected": false
+    },
+    {
+      "id": "3",
+      "category": "CWPP",
+      "name": "Workloads",
+      "description": "Manage workloads",
+      "selected": false
+    },
+    {
+      "id": "4",
+      "category": "CWPP",
+      "name": "Vulnerability Scans",
+      "description": "Scan for vulnerabilities",
+      "selected": false
+    },
+    {
+      "id": "5",
+      "category": "Registry Scan",
+      "name": "Image Compliance",
+      "description": "Ensure image compliance",
+      "selected": false
+    },
+    {
+      "id": "6",
+      "category": "Registry Scan",
+      "name": "Image Vulnerability",
+      "description": "Check image vulnerabilities",
+      "selected": false
+    },
+    {
+      "id": "7",
+      "category": "Ticket",
+      "name": "Open Tickets",
+      "description": "View open tickets",
+      "selected": false
+    },
+    {
+      "id": "8",
+      "category": "Ticket",
+      "name": "Resolved Tickets",
+      "description": "View resolved tickets",
+      "selected": false
+    }
+  ]
+}
