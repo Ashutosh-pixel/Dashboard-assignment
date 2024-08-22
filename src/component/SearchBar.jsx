@@ -1,12 +1,51 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { MyContext } from "./context/CardContext";
 
 const SearchBar = () => {
+  const [searchwidget, setSearchwidget] = useState("");
+  const { dashboardWidgets, setDashboardWidgets } = useContext(MyContext);
+  const { searchdashboardWidgets, setSearchDashboardWidgets } =
+    useContext(MyContext);
+
+  useEffect(() => {
+    if (searchwidget.trim() === "") {
+      // If search term is empty, reset searchdashboardWidgets to an empty object
+      setSearchDashboardWidgets({});
+      return;
+    }
+
+    let newObject = {};
+
+    Object.entries(dashboardWidgets).forEach(([category, widgets]) => {
+      let newArray = []; // Reset the array for each category
+
+      widgets.forEach((widget) => {
+        if (widget.name.toLowerCase().includes(searchwidget.toLowerCase())) {
+          newArray.push(widget);
+        }
+      });
+
+      if (newArray.length > 0) {
+        newObject[category] = newArray;
+      }
+    });
+
+    // If no matches found, newObject will be empty
+    if (Object.keys(newObject).length === 0) {
+      setSearchDashboardWidgets({});
+    } else {
+      setSearchDashboardWidgets(newObject);
+    }
+  }, [searchwidget, dashboardWidgets]);
+
   return (
     <div className="relative w-full max-w-md">
       <input
         type="text"
-        placeholder="Search Widget"
+        placeholder="Search Widget Name"
+        value={searchwidget}
         className="pl-10 pr-4 py-1 w-full rounded-md bg-[#e0e0e0] text-black focus:outline-none"
+        onChange={(e) => setSearchwidget(e.target.value)}
       />
       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
         <svg

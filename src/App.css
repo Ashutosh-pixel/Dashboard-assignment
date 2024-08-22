@@ -73,6 +73,17 @@
   align-items: center;
   position: relative;
 }
+.details {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+#widgetdescription {
+  font-size: small;
+}
 .cardscontainer {
   display: flex;
   flex-direction: row;

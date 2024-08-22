@@ -6,7 +6,7 @@ import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
 export default function CardsContainer({ categoryheading }) {
   const { dashboardWidgets, setDashboardWidgets } = useContext(MyContext);
-  const { widgets, setWidgets } = useContext(MyContext);
+  const { searchdashboardWidgets } = useContext(MyContext);
 
   const handleRemoveWidget = async (category, widgetId) => {
     const updatedWidgets = { ...dashboardWidgets };
@@ -27,40 +27,39 @@ export default function CardsContainer({ categoryheading }) {
     });
 
     setDashboardWidgets(updatedWidgets);
+    console.log("updatedWidgets", updatedWidgets);
   };
 
-  const Test = () => {
-    Object.entries(dashboardWidgets).map(([category, widgets]) => {
-      console.log(category, widgets);
-    });
-  };
-
-  Test();
+  const widgetsToDisplay =
+    Object.entries(searchdashboardWidgets).length > 0
+      ? searchdashboardWidgets[categoryheading]
+      : dashboardWidgets[categoryheading];
 
   return (
     <div className="cardscontainer">
-      {Object.entries(dashboardWidgets).map(([category, widgets]) =>
-        category === categoryheading
-          ? widgets.map((widget) => (
-              <div key={widget.id} className="widget">
-                <p>{widget.description}</p>
-                {/* <button onClick={() => handleRemoveWidget(category, widget.id)}>
-                  Remove
-                </button> */}
-                <button
-                  className="icon"
-                  onClick={() => handleRemoveWidget(category, widget.id)}
-                >
-                  <FontAwesomeIcon
-                    icon={faCircleXmark}
-                    style={{ color: "#000000" }}
-                    size="xl"
-                  />
-                </button>
-              </div>
-            ))
-          : null
+      {widgetsToDisplay && widgetsToDisplay.length > 0 ? (
+        widgetsToDisplay.map((widget) => (
+          <div key={widget.id} className="widget">
+            <div className="details">
+              <p>{widget.name}</p>
+            </div>
+            <p id="widgetdescription">{widget.description}</p>
+            <button
+              className="icon"
+              onClick={() => handleRemoveWidget(categoryheading, widget.id)}
+            >
+              <FontAwesomeIcon
+                icon={faCircleXmark}
+                style={{ color: "#000000" }}
+                size="xl"
+              />
+            </button>
+          </div>
+        ))
+      ) : (
+        <></>
       )}
+
       <div className="widget">
         <WidgetButton />
       </div>

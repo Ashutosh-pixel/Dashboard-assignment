@@ -33,14 +33,14 @@
       "category": "Registry Scan",
       "name": "Image Compliance",
       "description": "Ensure image compliance",
-      "selected": false
+      "selected": true
     },
     {
       "id": "6",
       "category": "Registry Scan",
       "name": "Image Vulnerability",
       "description": "Check image vulnerabilities",
-      "selected": false
+      "selected": true
     },
     {
       "id": "7",
